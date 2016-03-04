@@ -7,24 +7,38 @@ document.addEventListener('DOMContentLoaded', function(){
         rollButton.innerText = 'Roll Dice/Die';
         rollButton.className = 'rollButton';
     document.body.appendChild(rollButton);
-     
     
-    addButton.addEventListener('click', function(){
-       var diceHolder = document.createElement('div');
-            diceHolder.className = 'diceHolder';
-       document.body.appendChild(diceHolder);
-    });
-    
-    var Die = function() {   
+    var Die = function() {    
        this.roll = function() {
            var result = Math.floor(Math.random()*6+1);
            this.value = result;
        }     
     }
+     
+    var dieArray = [];
     
-    var test = new Die();
-    test.roll()
-    console.log('test value: '+ test.value);
+    
+    addButton.addEventListener('click', function(){
+       var diceHolder = document.createElement('div');
+            diceHolder.className = 'diceHolder';
+       document.body.appendChild(diceHolder);
+       var newDice = new Die()
+       newDice.roll()
+       diceHolder.innerText = newDice.value;
+       dieArray.push(newDice);
+       console.log(dieArray.value);
+    });
+    
+    rollButton.addEventListener('click', function () {
+       dieArray.forEach(function(element) {
+           element.roll()
+           console.log(element.value);
+       }, this);
+    });
+    
+
+    
+    
     
     
     
