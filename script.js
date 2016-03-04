@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function(){
     var addButton = document.createElement('button');
         addButton.innerText = 'Add Dice';
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function(){
            this.value = result;
        }     
     }
+    
      
     var dieArray = [];
     
@@ -24,19 +26,20 @@ document.addEventListener('DOMContentLoaded', function(){
        document.body.appendChild(diceHolder);
        var newDice = new Die()
        newDice.roll()
-       diceHolder.innerText = newDice.value;
+       diceHolder.innerText = String(newDice.value);
        dieArray.push(newDice);
-       console.log(dieArray.value);
-    });
+    });   
+    
     
     rollButton.addEventListener('click', function () {
-       dieArray.forEach(function(element) {
-           element.roll()
-           console.log(element.value);
-       }, this);
+       $('div').each(function(){
+           var num = Math.floor(Math.random()*6+1);
+           $(this).text(num);
+       })
+       
+      
+                  
     });
-    
-
     
     
     
