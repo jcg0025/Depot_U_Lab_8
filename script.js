@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', function(){
         rollButton.innerText = 'Roll Dice/Die';
         rollButton.className = 'rollButton';
     document.body.appendChild(rollButton);
+    var sumButton = document.createElement('button');
+        sumButton.innerText = 'Sum Dice/Die';
+        sumButton.className = 'sumButton';
+    document.body.appendChild(sumButton);
     
     var Die = function() {    
        this.roll = function() {
@@ -17,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     
      
-    var dieArray = [];
+    var valueArray = [];
     
     
     addButton.addEventListener('click', function(){
@@ -26,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function(){
        document.body.appendChild(diceHolder);
        var newDice = new Die()
        newDice.roll()
-       diceHolder.innerText = String(newDice.value);
-       dieArray.push(newDice);
+       diceHolder.innerText = newDice.value;
+       
     });   
     
     
@@ -36,10 +40,24 @@ document.addEventListener('DOMContentLoaded', function(){
            var num = Math.floor(Math.random()*6+1);
            $(this).text(num);
        })
-       
       
                   
     });
+    
+    sumButton.addEventListener('click', function() {
+        var sumArray = [];
+        $('div').each(function() {
+           sumArray.push(parseInt($(this).text())); 
+        })
+        var sum = 0;
+        for (var i = 0; i < sumArray.length; i++){
+            sum += sumArray[i];
+        }
+        alert("The sum equals "+sum);
+        
+    });
+    
+    
     
     
     
