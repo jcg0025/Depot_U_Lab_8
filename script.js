@@ -17,11 +17,14 @@ document.addEventListener('DOMContentLoaded', function(){
        this.roll = function() {
            var result = Math.floor(Math.random()*6+1);
            this.value = result;
-       }     
+       }
+       this.delete = function() {
+           this.unwrap();
+       }  
     }
     
      
-    var valueArray = [];
+    
     
     
     addButton.addEventListener('click', function(){
@@ -31,6 +34,14 @@ document.addEventListener('DOMContentLoaded', function(){
        var newDice = new Die()
        newDice.roll()
        diceHolder.innerText = newDice.value;
+       $('div').click(function() {
+         newDice.roll()
+         this.innerText = newDice.value;  
+       })
+        $('div').dblclick(function() {
+        this.remove();
+        })
+
        
     });   
     
@@ -56,6 +67,13 @@ document.addEventListener('DOMContentLoaded', function(){
         alert("The sum equals "+sum);
         
     });
+    
+   
+    
+    
+    
+        
+    
     
     
     
