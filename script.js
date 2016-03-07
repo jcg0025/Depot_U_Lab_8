@@ -18,15 +18,8 @@ document.addEventListener('DOMContentLoaded', function(){
            var result = Math.floor(Math.random()*6+1);
            this.value = result;
        }
-       this.delete = function() {
-           this.unwrap();
-       }  
     }
-    
-     
-    
-    
-    
+        
     addButton.addEventListener('click', function(){
        var diceHolder = document.createElement('div');
             diceHolder.className = 'diceHolder';
@@ -40,19 +33,14 @@ document.addEventListener('DOMContentLoaded', function(){
        })
         $('div').dblclick(function() {
         this.remove();
-        })
-
-       
+        })     
     });   
-    
-    
+        
     rollButton.addEventListener('click', function () {
        $('div').each(function(){
            var num = Math.floor(Math.random()*6+1);
            $(this).text(num);
-       })
-      
-                  
+       })                    
     });
     
     sumButton.addEventListener('click', function() {
@@ -64,23 +52,8 @@ document.addEventListener('DOMContentLoaded', function(){
         for (var i = 0; i < sumArray.length; i++){
             sum += sumArray[i];
         }
-        alert("The sum equals "+sum);
-        
-    });
-    
-   
-    
-    
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
+        alert("The sum equals "+sum);      
+    });  
     
 });
 
